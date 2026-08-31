@@ -1,0 +1,11 @@
+# econ238-portfolio
+# Harrison Chamberlain — ECON 238 Portfolio
+
+Environmental Economics, Fall 2026, University of Rochester
+
+ 
+
+## Assignments
+
+- [[Assignment 1: Coase and the ___ dispute](assignment-01-coase.md)]
+- (https://github.com/hchambe6-dot/econ238-portfolio/blob/main/assignment-01-%3Cshort-topic%3E.md)
