@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Who Actually Moves Global Temperature? · CLIM-02</title>
+<meta name="description" content="If China, India, the EU or the U.S. went net-zero alone, how much warming would it avoid by 2100? All on one common °C scale.">
+<meta property="og:image" content="cover.png">
+<style>
+:root{--ink:#0b0b0b;--ink2:#52514e;--muted:#6b6a66;--line:#e4e3de;--bg:#f6f5f1;--card:#ffffff;--navy:#16365c;--blue:#2a78d6;--orange:#eb6834;--green:#1f7a4d;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:20px 16px 56px}
+a{color:var(--blue)}
+.back{font-size:14px;text-decoration:none}
+.hero{background:var(--navy);color:#fff;border-radius:14px;padding:26px 28px;margin:14px 0 18px}
+.kicker{font-size:12px;letter-spacing:.12em;font-weight:700;opacity:.8;text-transform:uppercase}
+h1{font-size:clamp(26px,4vw,38px);line-height:1.15;margin:8px 0 10px}
+.hero p{margin:0;font-size:17px;opacity:.92;max-width:760px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:0 0 18px}
+.chart{position:relative;padding:10px}
+#viz{width:100%;height:auto;display:block}
+#viz .bar{cursor:pointer} #viz .bar:hover rect:first-child{filter:brightness(.92)}
+#tip{position:absolute;pointer-events:none;background:#0b0b0b;color:#fff;font-size:13px;line-height:1.4;padding:8px 10px;border-radius:8px;max-width:300px;opacity:0;transition:opacity .12s}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:18px}
+.take{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:12px;padding:14px 16px}
+.take b.big{display:block;font-size:26px;line-height:1.1;margin-bottom:4px}
+.take p{margin:0;color:var(--ink2);font-size:15px}
+h2{font-size:21px;margin:4px 0 10px}
+h3{font-size:16px;margin:14px 0 6px}
+.muted{color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+td{font-variant-numeric:tabular-nums} .rng{color:var(--muted);font-size:13px}
+.scroll{overflow-x:auto}
+.callout{background:#eef4fc;border:1px solid #cfe0f6;border-radius:12px;padding:14px 16px}
+.prompt{background:#fbf3ef;border-left:4px solid var(--orange);padding:10px 14px;border-radius:8px;font-style:italic;margin:8px 0}
+ul{padding-left:20px} li{margin:4px 0}
+code{background:#efeee9;padding:1px 5px;border-radius:4px;font-size:13.5px}
+footer{color:var(--muted);font-size:13px;margin-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="https://rochesterrizzo.github.io/Rizzo-Hours/show-me/museum/">← SHOW ME Museum</a>
+
+<header class="hero">
+  <div class="kicker">SHOW ME · CLIM-02 · Climate &amp; Models</div>
+  <h1>Who actually moves global temperature?</h1>
+  <p>Our class example asked what happens if <em>only the U.S.</em> went net-zero: about 0.14–0.17°C less warming by 2100. Here is the same experiment for China, India, the EU and groups of them, all on one °C scale.</p>
+</header>
+
+<section class="card chart" aria-label="Chart">
+<svg id="viz" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" role="img" aria-labelledby="t d" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+<title id="t">Warming avoided by 2100 if each country or group reached net-zero CO2</title>
+<desc id="d">Grouped bar chart. Medium and High CMIP7-style scenarios. China and India each avoid more warming than the U.S.; all four together avoid about 0.6 to 1.0 C; the rest of the world avoids slightly more than all four.</desc>
+<rect width="1000" height="650" fill="#ffffff"/>
+<text x="20" y="34" font-size="22" font-weight="700" fill="#0b0b0b">Who actually moves global temperature? Warming avoided by 2100 at net-zero CO₂</text>
+<text x="20" y="58" font-size="14" fill="#52514e">Each country or group goes to net-zero now; the rest of the world stays on the same path. Whiskers = likely range.</text>
+<rect x="20" y="76" width="12" height="12" rx="2" fill="#2a78d6"/><text x="38" y="86" font-size="13" fill="#52514e">Medium (current-policy path)</text>
+<rect x="270" y="76" width="12" height="12" rx="2" fill="#eb6834"/><text x="288" y="86" font-size="13" fill="#52514e">High (worst case / policy rollback)</text>
+<line x1="220.0" y1="108" x2="220.0" y2="558" stroke="#bdbcb7" stroke-width="1"/>
+<text x="220.0" y="578" font-size="12" fill="#6b6a66" text-anchor="middle">0.0°C</text>
+<line x1="310.0" y1="108" x2="310.0" y2="558" stroke="#ebeae6" stroke-width="1"/>
+<text x="310.0" y="578" font-size="12" fill="#6b6a66" text-anchor="middle">0.2°C</text>
+<line x1="400.0" y1="108" x2="400.0" y2="558" stroke="#ebeae6" stroke-width="1"/>
+<text x="400.0" y="578" font-size="12" fill="#6b6a66" text-anchor="middle">0.4°C</text>
+<line x1="490.0" y1="108" x2="490.0" y2="558" stroke="#ebeae6" stroke-width="1"/>
+<text x="490.0" y="578" font-size="12" fill="#6b6a66" text-anchor="middle">0.6°C</text>
+<line x1="580.0" y1="108" x2="580.0" y2="558" stroke="#ebeae6" stroke-width="1"/>
+<text x="580.0" y="578" font-size="12" fill="#6b6a66" text-anchor="middle">0.8°C</text>
+<line x1="670.0" y1="108" x2="670.0" y2="558" stroke="#ebeae6" stroke-width="1"/>
+<text x="670.0" y="578" font-size="12" fill="#6b6a66" text-anchor="middle">1.0°C</text>
+<line x1="760.0" y1="108" x2="760.0" y2="558" stroke="#ebeae6" stroke-width="1"/>
+<text x="760.0" y="578" font-size="12" fill="#6b6a66" text-anchor="middle">1.2°C</text>
+<line x1="850.0" y1="108" x2="850.0" y2="558" stroke="#ebeae6" stroke-width="1"/>
+<text x="850.0" y="578" font-size="12" fill="#6b6a66" text-anchor="middle">1.4°C</text>
+<line x1="940.0" y1="108" x2="940.0" y2="558" stroke="#ebeae6" stroke-width="1"/>
+<text x="940.0" y="578" font-size="12" fill="#6b6a66" text-anchor="middle">1.6°C</text>
+<text x="580.0" y="602" font-size="13" fill="#52514e" text-anchor="middle">Global warming avoided by 2100 (°C)</text>
+<text x="20" y="118" font-size="11" font-weight="700" letter-spacing="1" fill="#6b6a66">SINGLE ACTORS</text>
+<text x="206" y="144.71428571428572" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="end">United States</text>
+<text x="206" y="160.71428571428572" font-size="11.5" fill="#6b6a66" text-anchor="end">class example</text>
+<g class="bar" data-tip="United States · Medium: 0.13°C avoided (likely 0.08–0.18°C); 259 GtCO₂ avoided 2025–2100, 9.5% of the scenario's global total"><rect x="220.0" y="130.71428571428572" width="56.7" height="15" rx="3" fill="#2a78d6"/>
+<line x1="254.2" y1="138.21428571428572" x2="299.2" y2="138.21428571428572" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="299.2" y1="133.71428571428572" x2="299.2" y2="142.71428571428572" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="305.2" y="142.71428571428572" font-size="12.5" font-weight="600" fill="#0b0b0b">0.13°C</text>
+<rect x="220" y="129.71428571428572" width="720" height="17" fill="transparent"/></g>
+<g class="bar" data-tip="United States · High: 0.17°C avoided (likely 0.10–0.24°C); 373 GtCO₂ avoided 2025–2100, 8.0% of the scenario's global total"><rect x="220.0" y="147.71428571428572" width="76.5" height="15" rx="3" fill="#eb6834"/>
+<line x1="265.9" y1="155.21428571428572" x2="327.1" y2="155.21428571428572" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="327.1" y1="150.71428571428572" x2="327.1" y2="159.71428571428572" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="333.1" y="159.71428571428572" font-size="12.5" font-weight="600" fill="#0b0b0b">0.17°C</text>
+<rect x="220" y="146.71428571428572" width="720" height="17" fill="transparent"/></g>
+<text x="206" y="212.14285714285717" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="end">European Union</text>
+<g class="bar" data-tip="European Union · Medium: 0.04°C avoided (likely 0.03–0.06°C); 85 GtCO₂ avoided 2025–2100, 3.1% of the scenario's global total"><rect x="220.0" y="192.14285714285717" width="18.4" height="15" rx="3" fill="#2a78d6"/>
+<line x1="231.2" y1="199.64285714285717" x2="246.1" y2="199.64285714285717" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="246.1" y1="195.14285714285717" x2="246.1" y2="204.14285714285717" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="252.1" y="204.14285714285717" font-size="12.5" font-weight="600" fill="#0b0b0b">0.04°C</text>
+<rect x="220" y="191.14285714285717" width="720" height="17" fill="transparent"/></g>
+<g class="bar" data-tip="European Union · High: 0.06°C avoided (likely 0.04–0.08°C); 128 GtCO₂ avoided 2025–2100, 2.8% of the scenario's global total"><rect x="220.0" y="209.14285714285717" width="26.1" height="15" rx="3" fill="#eb6834"/>
+<line x1="235.8" y1="216.64285714285717" x2="256.9" y2="216.64285714285717" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="256.9" y1="212.14285714285717" x2="256.9" y2="221.14285714285717" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="262.9" y="221.14285714285717" font-size="12.5" font-weight="600" fill="#0b0b0b">0.06°C</text>
+<rect x="220" y="208.14285714285717" width="720" height="17" fill="transparent"/></g>
+<text x="206" y="273.5714285714286" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="end">China</text>
+<g class="bar" data-tip="China · Medium: 0.28°C avoided (likely 0.17–0.40°C); 580 GtCO₂ avoided 2025–2100, 21.4% of the scenario's global total"><rect x="220.0" y="253.5714285714286" width="126.9" height="15" rx="3" fill="#2a78d6"/>
+<line x1="296.1" y1="261.0714285714286" x2="397.8" y2="261.0714285714286" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="397.8" y1="256.5714285714286" x2="397.8" y2="265.5714285714286" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="403.8" y="265.5714285714286" font-size="12.5" font-weight="600" fill="#0b0b0b">0.28°C</text>
+<rect x="220" y="252.5714285714286" width="720" height="17" fill="transparent"/></g>
+<g class="bar" data-tip="China · High: 0.49°C avoided (likely 0.29–0.69°C); 1,079 GtCO₂ avoided 2025–2100, 23.2% of the scenario's global total"><rect x="220.0" y="270.5714285714286" width="221.4" height="15" rx="3" fill="#eb6834"/>
+<line x1="352.8" y1="278.0714285714286" x2="529.6" y2="278.0714285714286" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="529.6" y1="273.5714285714286" x2="529.6" y2="282.5714285714286" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="535.6" y="282.5714285714286" font-size="12.5" font-weight="600" fill="#0b0b0b">0.49°C</text>
+<rect x="220" y="269.5714285714286" width="720" height="17" fill="transparent"/></g>
+<text x="206" y="335.00000000000006" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="end">India</text>
+<g class="bar" data-tip="India · Medium: 0.19°C avoided (likely 0.11–0.26°C); 385 GtCO₂ avoided 2025–2100, 14.2% of the scenario's global total"><rect x="220.0" y="315.00000000000006" width="84.1" height="15" rx="3" fill="#2a78d6"/>
+<line x1="270.4" y1="322.50000000000006" x2="337.9" y2="322.50000000000006" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="337.9" y1="318.00000000000006" x2="337.9" y2="327.00000000000006" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="343.9" y="327.00000000000006" font-size="12.5" font-weight="600" fill="#0b0b0b">0.19°C</text>
+<rect x="220" y="314.00000000000006" width="720" height="17" fill="transparent"/></g>
+<g class="bar" data-tip="India · High: 0.29°C avoided (likely 0.18–0.41°C); 645 GtCO₂ avoided 2025–2100, 13.9% of the scenario's global total"><rect x="220.0" y="332.00000000000006" width="132.3" height="15" rx="3" fill="#eb6834"/>
+<line x1="299.2" y1="339.50000000000006" x2="405.4" y2="339.50000000000006" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="405.4" y1="335.00000000000006" x2="405.4" y2="344.00000000000006" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="411.4" y="344.00000000000006" font-size="12.5" font-weight="600" fill="#0b0b0b">0.29°C</text>
+<rect x="220" y="331.00000000000006" width="720" height="17" fill="transparent"/></g>
+<line x1="20" y1="359.7142857142858" x2="980" y2="359.7142857142858" stroke="#bdbcb7" stroke-dasharray="4 4"/>
+<text x="20" y="375.7142857142858" font-size="11" font-weight="700" letter-spacing="1" fill="#6b6a66">COMBINATIONS</text>
+<text x="206" y="420.4285714285715" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="end">U.S. + EU</text>
+<g class="bar" data-tip="U.S. + EU · Medium: 0.17°C avoided (likely 0.10–0.23°C); 344 GtCO₂ avoided 2025–2100, 12.7% of the scenario's global total"><rect x="220.0" y="400.4285714285715" width="75.1" height="15" rx="3" fill="#2a78d6"/>
+<line x1="265.0" y1="407.9285714285715" x2="325.3" y2="407.9285714285715" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="325.3" y1="403.4285714285715" x2="325.3" y2="412.4285714285715" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="331.3" y="412.4285714285715" font-size="12.5" font-weight="600" fill="#0b0b0b">0.17°C</text>
+<rect x="220" y="399.4285714285715" width="720" height="17" fill="transparent"/></g>
+<g class="bar" data-tip="U.S. + EU · High: 0.23°C avoided (likely 0.14–0.32°C); 501 GtCO₂ avoided 2025–2100, 10.8% of the scenario's global total"><rect x="220.0" y="417.4285714285715" width="102.6" height="15" rx="3" fill="#eb6834"/>
+<line x1="281.6" y1="424.9285714285715" x2="364.0" y2="424.9285714285715" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="364.0" y1="420.4285714285715" x2="364.0" y2="429.4285714285715" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="370.0" y="429.4285714285715" font-size="12.5" font-weight="600" fill="#0b0b0b">0.23°C</text>
+<rect x="220" y="416.4285714285715" width="720" height="17" fill="transparent"/></g>
+<text x="206" y="475.85714285714295" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="end">All four together</text>
+<text x="206" y="491.85714285714295" font-size="11.5" fill="#6b6a66" text-anchor="end">U.S. + EU + China + India</text>
+<g class="bar" data-tip="All four together · Medium: 0.64°C avoided (likely 0.38–0.89°C); 1,309 GtCO₂ avoided 2025–2100, 48.2% of the scenario's global total"><rect x="220.0" y="461.85714285714295" width="286.2" height="15" rx="3" fill="#2a78d6"/>
+<line x1="391.9" y1="469.35714285714295" x2="621.0" y2="469.35714285714295" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="621.0" y1="464.85714285714295" x2="621.0" y2="473.85714285714295" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="627.0" y="473.85714285714295" font-size="12.5" font-weight="600" fill="#0b0b0b">0.64°C</text>
+<rect x="220" y="460.85714285714295" width="720" height="17" fill="transparent"/></g>
+<g class="bar" data-tip="All four together · High: 1.01°C avoided (likely 0.61–1.42°C); 2,225 GtCO₂ avoided 2025–2100, 47.8% of the scenario's global total"><rect x="220.0" y="478.85714285714295" width="456.3" height="15" rx="3" fill="#eb6834"/>
+<line x1="493.6" y1="486.35714285714295" x2="858.5" y2="486.35714285714295" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="858.5" y1="481.85714285714295" x2="858.5" y2="490.85714285714295" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="864.5" y="490.85714285714295" font-size="12.5" font-weight="600" fill="#0b0b0b">1.01°C</text>
+<rect x="220" y="477.85714285714295" width="720" height="17" fill="transparent"/></g>
+<text x="206" y="537.2857142857143" font-size="15" font-weight="600" fill="#0b0b0b" text-anchor="end">Rest of world</text>
+<text x="206" y="553.2857142857143" font-size="11.5" fill="#6b6a66" text-anchor="end">everyone except those four</text>
+<g class="bar" data-tip="Rest of world · Medium: 0.68°C avoided (likely 0.41–0.96°C); 1,407 GtCO₂ avoided 2025–2100, 51.8% of the scenario's global total"><rect x="220.0" y="523.2857142857143" width="307.8" height="15" rx="3" fill="#2a78d6"/>
+<line x1="404.5" y1="530.7857142857143" x2="650.6" y2="530.7857142857143" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="650.6" y1="526.2857142857143" x2="650.6" y2="535.2857142857143" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="656.6" y="535.2857142857143" font-size="12.5" font-weight="600" fill="#0b0b0b">0.68°C</text>
+<rect x="220" y="522.2857142857143" width="720" height="17" fill="transparent"/></g>
+<g class="bar" data-tip="Rest of world · High: 1.11°C avoided (likely 0.66–1.55°C); 2,427 GtCO₂ avoided 2025–2100, 52.2% of the scenario's global total"><rect x="220.0" y="540.2857142857143" width="497.7" height="15" rx="3" fill="#eb6834"/>
+<line x1="518.8" y1="547.7857142857143" x2="917.0" y2="547.7857142857143" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<line x1="917.0" y1="543.2857142857143" x2="917.0" y2="552.2857142857143" stroke="#3d3c39" stroke-width="1.2" opacity=".55"/>
+<text x="923.0" y="552.2857142857143" font-size="12.5" font-weight="600" fill="#0b0b0b">1.11°C</text>
+<rect x="220" y="539.2857142857143" width="720" height="17" fill="transparent"/></g>
+<text x="20" y="626" font-size="11" fill="#6b6a66">Illustrative back-of-the-envelope estimate, not an official CMIP7 model run. CO₂ data: Global Carbon Project via Our World in Data (2024).</text>
+<text x="20" y="641" font-size="11" fill="#6b6a66">Warming per tonne: IPCC AR6 TCRE, 0.45°C per 1,000 GtCO₂ (likely 0.27–0.63), calibrated to the class example’s 2.65°C / 3.45°C scenario end points.</text>
+</svg>
+<div id="tip" role="tooltip"></div>
+<p class="muted" style="margin:6px 10px 2px">Hover or tap a bar for the numbers behind it. Full table below.</p>
+</section>
+
+<section class="grid3" aria-label="Key takeaways">
+  <div class="take"><b class="big">China &gt; U.S. + EU</b><p>China going net-zero alone avoids <b>0.28–0.49°C</b>, more than the U.S. and EU <em>together</em> (0.17–0.23°C).</p></div>
+  <div class="take"><b class="big">India is the rising lever</b><p>India emits less than the U.S. today, but its emissions are still growing. Over the century its net-zero is worth <b>0.19–0.29°C</b>, more than the U.S. in both scenarios.</p></div>
+  <div class="take"><b class="big">The big four aren’t enough</b><p>Even if all four (≈59% of today’s CO₂) went net-zero, warming would still reach about <b>2.0°C</b> (Medium) or <b>2.4°C</b> (High). The rest of the world avoids slightly more than all four combined.</p></div>
+</section>
+
+<section class="card">
+  <h2>What this shows</h2>
+  <p>A country’s effect on 2100 temperature depends on how much CO₂ it will emit <em>from now on</em>, not on how much it emits today or has emitted in the past. Warming tracks total cumulative CO₂ almost linearly, so “who moves the needle” comes down to whose future emissions are biggest. The EU is a large economy, but its emissions are already small and falling, so it has little left to cut. India is the reverse: modest today but growing, so its future pile is large. China is huge on both counts.</p>
+  <div class="callout"><b>Same scale, different story:</b> a rich-country-only climate deal (U.S. + EU) buys roughly the same warming reduction as India alone, and less than China alone. Whatever happens in Washington or Brussels, the 2100 thermometer is mostly set in Asia and in the “rest of world”: Russia, Japan, Southeast Asia, the Middle East, Africa and Latin America.</div>
+</section>
+
+<section class="card">
+  <h2>The numbers</h2>
+  <div class="scroll"><table>
+  <thead><tr><th>If this goes net-zero…</th><th>°C avoided, Medium (likely range)</th><th>°C avoided, High (likely range)</th><th>CO₂ avoided 2025–2100 (Gt), M / H</th><th>If phased to zero by 2050 instead (°C), M / H</th></tr></thead>
+  <tbody>
+<tr><th scope='row'>United States</th><td>0.13 <span class='rng'>(0.08–0.18)</span></td><td>0.17 <span class='rng'>(0.10–0.24)</span></td><td>259 / 373</td><td>0.10 / 0.14</td></tr>
+<tr><th scope='row'>European Union</th><td>0.04 <span class='rng'>(0.03–0.06)</span></td><td>0.06 <span class='rng'>(0.04–0.08)</span></td><td>85 / 128</td><td>0.03 / 0.05</td></tr>
+<tr><th scope='row'>China</th><td>0.28 <span class='rng'>(0.17–0.40)</span></td><td>0.49 <span class='rng'>(0.29–0.69)</span></td><td>580 / 1,079</td><td>0.21 / 0.41</td></tr>
+<tr><th scope='row'>India</th><td>0.19 <span class='rng'>(0.11–0.26)</span></td><td>0.29 <span class='rng'>(0.18–0.41)</span></td><td>385 / 645</td><td>0.16 / 0.27</td></tr>
+<tr><th scope='row'>U.S. + EU</th><td>0.17 <span class='rng'>(0.10–0.23)</span></td><td>0.23 <span class='rng'>(0.14–0.32)</span></td><td>344 / 501</td><td>0.13 / 0.19</td></tr>
+<tr><th scope='row'>All four together</th><td>0.64 <span class='rng'>(0.38–0.89)</span></td><td>1.01 <span class='rng'>(0.61–1.42)</span></td><td>1,309 / 2,225</td><td>0.50 / 0.87</td></tr>
+<tr><th scope='row'>Rest of world</th><td>0.68 <span class='rng'>(0.41–0.96)</span></td><td>1.11 <span class='rng'>(0.66–1.55)</span></td><td>1,407 / 2,427</td><td>0.58 / 1.00</td></tr>
+  </tbody></table></div>
+  <p class="muted">Today’s shares of world fossil CO₂ (2024): China 31.8%, U.S. 12.7%, India 8.3%, EU 6.3%, everyone else 40.9%. Total ≈ 38.6 GtCO₂.</p>
+</section>
+
+<section class="card">
+  <h2>How this was built (so you can rerun it)</h2>
+  <ol>
+    <li><b>Starting point:</b> 2024 fossil-fuel + cement CO₂ for each region from the Global Carbon Project, via <a href="https://github.com/owid/co2-data">Our World in Data</a>.</li>
+    <li><b>Two futures to 2100</b>, styled on the CMIP7 ScenarioMIP <b>Medium</b> (current policy) and <b>High</b> (worst case / policy rollback) scenarios. Each region gets simple growth rates:
+      <div class="scroll"><table style="margin-top:8px">
+      <thead><tr><th>Region</th><th>Medium path</th><th>High path</th></tr></thead>
+      <tbody>
+      <tr><th>U.S.</th><td>−1%/yr</td><td>flat</td></tr>
+      <tr><th>EU</th><td>−2.5%/yr to 2050, then −2%</td><td>−1%/yr</td></tr>
+      <tr><th>China</th><td>flat to 2030, −1.5%/yr to 2060, then −2%</td><td>+1%/yr to 2040, then flat</td></tr>
+      <tr><th>India</th><td>+3%/yr to 2040, +1% to 2060, then −1%</td><td>+3.5%/yr to 2050, then +1%</td></tr>
+      <tr><th>Rest of world</th><td>+1%/yr to 2050, flat to 2070, then −1%</td><td>+2%/yr to 2060, then +1%</td></tr>
+      </tbody></table></div>
+      Global totals: Medium ≈ 40 Gt in 2050 → 26 Gt in 2100; High ≈ 55 Gt → 81 Gt.</li>
+    <li><b>The counterfactual:</b> the chosen country or group goes to net-zero CO₂ from 2025, and everyone else stays on the scenario path (the same thought experiment as the class example).</li>
+    <li><b>CO₂ → temperature:</b> avoided cumulative CO₂ × IPCC AR6 TCRE (0.45°C per 1,000 GtCO₂; likely 0.27–0.63, shown as whiskers). A small non-CO₂ factor (×1.08 Medium, ×1.01 High) makes the global paths land on the class example’s end points: 2.65°C and 3.45°C in 2100, from 1.33°C in 2025.</li>
+    <li><b>Check:</b> this method gives the U.S. <b>0.13°C / 0.17°C</b>, against the class example’s 0.14 / 0.17°C. Close enough to put every bar on the same scale as that exhibit.</li>
+  </ol>
+  <h3>AI prompts used</h3>
+  <div class="prompt">“Repeat the class U.S. net-zero counterfactual for China, India, the EU, U.S.+EU, all four together, and the rest of the world, under CMIP7-style Medium and High scenarios. Use real 2024 emissions data and IPCC TCRE, and put the avoided warming by 2100 on one common °C scale.”</div>
+  <div class="prompt">“Check the method by reproducing the U.S. result from the class example, then show the likely range and how much smaller the numbers get if net-zero is phased in by 2050 instead of immediately.”</div>
+  <p class="muted">Built with an AI assistant (Claude) doing the data pull, Python model and chart. Everything is in this repo: <a href="clim02_model.py"><code>clim02_model.py</code></a> (rerunnable), <a href="clim02_results.csv"><code>clim02_results.csv</code></a>, <a href="chart.svg"><code>chart.svg</code></a>.</p>
+  <h3>What this leaves out</h3>
+  <ul>
+    <li>It isn’t an official CMIP7 model run. The regional paths are stylized assumptions, and changing them changes the bars.</li>
+    <li>Only fossil and cement CO₂ are counted directly. Land-use CO₂ and methane are handled only through the small calibration factor.</li>
+    <li>“Everyone else unchanged” ignores spillovers: cheaper clean tech spreading abroad, or carbon leakage to other countries.</li>
+    <li>Instant net-zero is an upper bound. A realistic phase-out by 2050 cuts each number by roughly 10–25% (see table).</li>
+  </ul>
+  <h3>Ask the next question</h3>
+  <ul>
+    <li>Per person, who would be giving up the most? (India’s per-capita CO₂ is about ⅙ of the U.S. level.)</li>
+    <li>Which part of the “rest of world” (Southeast Asia, Africa, the Middle East) is the next China?</li>
+    <li>What if clean-tech spillovers mean that one region’s net-zero drags others 20% lower too?</li>
+  </ul>
+</section>
+
+<footer>
+  Sources: Global Carbon Project / Our World in Data CO₂ dataset (2024 values) · IPCC AR6 WG1 SPM (TCRE, D.1.1) · CMIP7 ScenarioMIP scenario framing · Class SHOW ME example exhibit (“If the U.S. went net-zero…”).<br>
+  ECON 238 · University of Rochester · Fall 2026 · SHOW ME Museum exhibit CLIM-02.
+</footer>
+</div>
+<script>
+(function(){
+  var svg=document.getElementById('viz'),tip=document.getElementById('tip'),box=svg.parentNode;
+  function show(e,g){tip.textContent=g.getAttribute('data-tip');tip.style.opacity=1;
+    var r=box.getBoundingClientRect(),x=(e.touches?e.touches[0].clientX:e.clientX)-r.left,y=(e.touches?e.touches[0].clientY:e.clientY)-r.top;
+    tip.style.left=Math.min(x+14,r.width-310)+'px';tip.style.top=(y+14)+'px';}
+  svg.querySelectorAll('.bar').forEach(function(g){
+    g.addEventListener('mousemove',function(e){show(e,g)});
+    g.addEventListener('touchstart',function(e){show(e,g)},{passive:true});
+    g.addEventListener('mouseleave',function(){tip.style.opacity=0});
+  });
+})();
+</script>
+</body>
+</html>

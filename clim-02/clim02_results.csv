@@ -1,0 +1,15 @@
+case,scenario,avoided_GtCO2_2025_2100,share_of_global_cum_pct,avoided_C_central,avoided_C_low,avoided_C_high,avoided_C_if_phased_to_zero_by_2050
+United States,Medium,259,9.5,0.126,0.076,0.176,0.099
+European Union,Medium,85,3.1,0.041,0.025,0.058,0.029
+China,Medium,580,21.4,0.282,0.169,0.395,0.212
+India,Medium,385,14.2,0.187,0.112,0.262,0.162
+U.S. + EU,Medium,344,12.7,0.167,0.1,0.234,0.128
+All four,Medium,1309,48.2,0.636,0.382,0.891,0.501
+Rest of world,Medium,1407,51.8,0.684,0.41,0.957,0.579
+United States,High,373,8.0,0.17,0.102,0.238,0.142
+European Union,High,128,2.8,0.058,0.035,0.082,0.046
+China,High,1079,23.2,0.492,0.295,0.688,0.415
+India,High,645,13.9,0.294,0.176,0.412,0.269
+U.S. + EU,High,501,10.8,0.228,0.137,0.32,0.188
+All four,High,2225,47.8,1.014,0.608,1.419,0.872
+Rest of world,High,2427,52.2,1.106,0.664,1.549,0.998
