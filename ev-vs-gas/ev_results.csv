@@ -1,0 +1,6 @@
+grid,lb_mwh,ev_g_per_mi,gas_g_per_mi,breakeven_mi,ev_life_t,gas_life_t,pct_less
+California,407,58,367,18200.0,24.3,80.5,70
+New York,537,77,367,19400.0,28.0,80.5,65
+U.S. average,785,112,367,22100.0,35.1,80.5,56
+Texas,823,118,367,22600.0,36.2,80.5,55
+West Virginia,1912,274,367,60200.0,67.4,80.5,16
